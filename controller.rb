@@ -1,60 +1,44 @@
-require_relative 'viewer.rb'
-require_relative 'model.rb'
-
-
-class Reddit
-  def initialize
-    @joke = '' 
-  end 
-
-  def grab_joke_from_reddit 
-    format_joke
-  end 
-
-  def format_joke 
-  end 
-
-end 
-
+require_relative 'viewer'
+require_relative 'reddit'
 
 class Controller 
 
   def initialize
     @viewer = Viewer.new
-    @model = Reddit.new 
+    @model = Model.new 
     start
   end 
 
   def start 
     input = @viewer.welcome_screen
     if input == 'yes' #|| 'Yes' || 'yeah'
-      joke_parse
+      get_joke
     else 
       puts "Come back when you are ready."
     end 
   end 
 
-  def joke_parse
-    @joke = @model.grab_joke_from_reddit
-    joke_ready
+  def get_joke
+    joke = @model.get_joke_from_reddit
+    @viewer.display_joke(joke)
+    get_punch_line
   end 
 
-  def joke_ready
-    input = @viewer.display_joke(@joke)
+  def get_punch_line 
+    punch_line = @model.get_punch_line_from_reddit
+    input = @viewer.display_punch_line(punch_line)
     another_joke?(input)
   end 
 
   def another_joke?(response)
     if response == 'yes' #|| 'Yes' || 'yeah'
-      joke_parse
+      get_joke
     else
       @viewer.good_bye
     end  
   end 
    
 end 
-
-
 
 
 # DRIVER 
