@@ -1,8 +1,24 @@
 require "ruby_reddit_api"
+require "launchy"
 
-r = Reddit::Api.new "user", "password"
+class Model 
+  def initialize
+    @info = Reddit::Api.new "user", "password"
+    @results = @info.browse "jokes"
+    @index = rand(0..24)
+  end 
 
-results = r.browse "oneliners"
+  def get_joke_from_reddit 
+    @current_joke = @results.shuffle.first
+    @current_joke.title
+  end 
+ 
 
-p index = rand(0..24)
-p results[index.to_i].title
+  def get_punch_line_from_reddit
+    @current_joke.selftext
+  end 
+  
+end 
+
+
+# Launchy.open("reddit.com" << results[index.to_i].permalink.to_s)
