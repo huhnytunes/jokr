@@ -3,7 +3,7 @@ $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'jokr'
-  s.version     = '2.0.0'
+  s.version     = '2.0.2'
   s.date        = '2014-05-30'
   s.executables << 'jokr'
   s.default_executable = 'jokr'

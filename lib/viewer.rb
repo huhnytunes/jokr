@@ -32,7 +32,7 @@ class Viewer
 
   def display_punch_line(punch_line)
     puts punch_line
-    see_another?
+    return see_another?
   end 
 
   def see_another?
@@ -43,6 +43,7 @@ class Viewer
 
   def good_bye
     puts "Come back soon !!"
+    exit  
   end 
 
 end 

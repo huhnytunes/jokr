@@ -11,9 +11,6 @@ class Model
     @results = @info_results.browse "jokes"
   end 
 
-  def filter_results 
-    
-  end 
 
   def get_joke_from_reddit 
     @current_joke = @results.shuffle.first
