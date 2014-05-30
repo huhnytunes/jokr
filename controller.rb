@@ -9,10 +9,18 @@ class Controller
     start
   end 
 
-  def start 
-    input = @viewer.welcome_screen
-    if input == 'yes' #|| 'Yes' || 'yeah'
+  def welcome_screen 
+    @viewer.welcome_screen
+    get_choice
+  end 
+
+  def get_choice
+    input = @choice_screen 
+    case input 
+    when 1 
       get_joke
+    when 2 
+      get_image 
     else 
       puts "Come back when you are ready."
     end 
@@ -22,6 +30,13 @@ class Controller
     joke = @model.get_joke_from_reddit
     @viewer.display_joke(joke)
     get_punch_line
+  end 
+
+  def get_image 
+    image = @model.get_funnu_image_from_reddit
+    @viewer.display_image(image)
+    input = @viewer.see_another?
+    another_joke?(input)
   end 
 
   def get_punch_line 
