@@ -55,7 +55,10 @@ class Controller
   end 
 
   def another_joke?(response)
-    if response == 'yes' #|| 'Yes' || 'yeah'
+    case response 
+    when 'yes' 
+      get_choice 
+    when 'y'
       get_choice 
     else
       @viewer.good_bye

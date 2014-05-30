@@ -2,12 +2,15 @@ require "ruby_reddit_api"
 require "launchy"
 
 class Model 
+  attr_reader :filter_results
+
   def initialize
     @info_funny = Reddit::Api.new "user", "pa1sword"
     @info_results = Reddit::Api.new "user", "pa1sword"
     @funny = @info_funny.browse "funny"
     @results = @info_results.browse "jokes"
   end 
+
 
   def get_joke_from_reddit 
     @current_joke = @results.shuffle.first
