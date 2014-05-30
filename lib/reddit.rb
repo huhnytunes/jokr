@@ -27,5 +27,5 @@ class Model
   def get_image_punch_line
     @image.title
   end
-  
+
 end 
