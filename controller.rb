@@ -33,8 +33,17 @@ class Controller
   end 
 
   def get_image 
-    image = @model.get_funny_image_from_reddit
-    @viewer.display_image(image)
+    @image_url = @model.get_funny_image_from_reddit
+    get_image_punch_line
+  end 
+
+  def get_image_punch_line
+    @punch_line = @model.get_image_punch_line
+    display_image
+  end 
+
+  def display_image
+    @viewer.display_image(@punch_line, @image_url)
     input = @viewer.see_another?
     another_joke?(input)
   end 

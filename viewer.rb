@@ -1,3 +1,5 @@
+require "launchy"
+
 class Viewer
 
   def welcome_screen
@@ -21,10 +23,11 @@ class Viewer
     sleep(3)
   end 
 
-  def display_image(image)
+  def display_image(punchline, image)
     puts 
-    puts image 
-    puts 
+    puts punchline
+    sleep(3)
+    Launchy.open(image)
   end 
 
   def display_punch_line(punch_line)

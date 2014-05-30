@@ -3,10 +3,10 @@ require "launchy"
 
 class Model 
   def initialize
-    @info = Reddit::Api.new "user", "password"
-    @results = @info.browse "jokes"
-    @cute_images = @info.browse "funny"
-    @index = rand(0..24)
+    @info_funny = Reddit::Api.new "user", "pa1sword"
+    @info_results = Reddit::Api.new "user", "pa1sword"
+    @funny = @info_funny.browse "funny"
+    @results = @info_results.browse "jokes"
   end 
 
   def get_joke_from_reddit 
@@ -14,17 +14,17 @@ class Model
     @current_joke.title
   end 
  
-  def get_funny_image_from_reddit
-    funny_image = @results.shuffle.first.url
-    # if funny_image.over_18 == true
-    #   get_funny_image_from_reddit
-    # else
-    #   return funny_image
-    # end
-  end
-
   def get_punch_line_from_reddit
     @current_joke.selftext
   end 
+
+  def get_funny_image_from_reddit
+    @image = @funny.shuffle.first
+    @image.url
+  end
+
+  def get_image_punch_line
+    @image.title
+  end
   
 end 
