@@ -1,7 +1,7 @@
 jokr -- Need a laugh ? 
 ====
 
-What it does ? 
+<b>What it does ?<b> 
 
 Jokr is a supreme means of bringing a smile to an otherwise barrenly-lacking upside-down frown wasteland. Put simply, it helps you smile .. Something we all could use a bit more of in our lives. So enjoy (and don't resist the smile !)
 
