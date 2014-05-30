@@ -1,4 +1,4 @@
-jokr -- Need a laugh ? 
+jokr -- need a laugh ? 
 ====
 
 <b>What it does ?</b> 
