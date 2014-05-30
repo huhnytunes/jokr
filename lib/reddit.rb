@@ -11,6 +11,7 @@ class Model
 
   def get_joke_from_reddit 
     @current_joke = @results.shuffle.first
+    get_joke_from_reddit if @current_joke.selftext.length > 50
     @current_joke.title
   end 
  
