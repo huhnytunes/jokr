@@ -5,7 +5,7 @@ class Model
   def initialize
     @info = Reddit::Api.new "user", "password"
     @results = @info.browse "jokes"
-    @cute_images = @info.brows "funny"
+    @cute_images = @info.browse "funny"
     @index = rand(0..24)
   end 
 
@@ -16,11 +16,12 @@ class Model
  
   def get_funny_image_from_reddit
     funny_image = @results.shuffle.first.url
-    if funny_image.over_18 == true
-      get_funny_image_from_reddit
-    else
-      return funny_image
-    end
+    Launchy.open(funny_image)
+    # if funny_image.over_18 == true
+    #   get_funny_image_from_reddit
+    # else
+    #   return funny_image
+    # end
   end
 
   end
