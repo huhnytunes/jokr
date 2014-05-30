@@ -6,7 +6,7 @@ class Controller
   def initialize
     @viewer = Viewer.new
     @model = Model.new 
-    start
+    welcome_screen
   end 
 
   def welcome_screen 
@@ -15,11 +15,11 @@ class Controller
   end 
 
   def get_choice
-    input = @choice_screen 
+    input = @viewer.choice_screen 
     case input 
-    when 1 
+    when '1' 
       get_joke
-    when 2 
+    when '2' 
       get_image 
     else 
       puts "Come back when you are ready."
@@ -33,7 +33,7 @@ class Controller
   end 
 
   def get_image 
-    image = @model.get_funnu_image_from_reddit
+    image = @model.get_funny_image_from_reddit
     @viewer.display_image(image)
     input = @viewer.see_another?
     another_joke?(input)
@@ -47,7 +47,7 @@ class Controller
 
   def another_joke?(response)
     if response == 'yes' #|| 'Yes' || 'yeah'
-      get_joke
+      get_choice 
     else
       @viewer.good_bye
     end  

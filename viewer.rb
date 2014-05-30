@@ -1,16 +1,16 @@
 class Viewer
 
   def welcome_screen
-    puts "Welcome to Jokr. Get ready to laugh."
+    puts 
+    puts "Welcome to Jokr. Get ready to laugh." 
     puts 
   end 
 
   def choice_screen
     puts "What would you like to see?" 
     puts 
-    puts "1. A joke"
-    puts "2. A funny picture"
-    puts 
+    puts "1 for a Joke"
+    puts "2 for a Funny Picture" 
     gets.chomp 
   end 
 
@@ -22,6 +22,7 @@ class Viewer
   end 
 
   def display_image(image)
+    puts 
     puts image 
     puts 
   end 
@@ -31,7 +32,7 @@ class Viewer
     see_another?
   end 
 
-   def see_another?
+  def see_another?
     puts 
     puts "Would you like to laugh again ?"
     gets.chomp
