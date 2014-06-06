@@ -3,29 +3,23 @@ require "launchy"
 class Viewer
 
   def welcome_screen
-    puts 
-    puts "Welcome to Jokr. Get ready to laugh." 
-    puts 
+    puts "\nWelcome to Jokr. Get ready to laugh.\n"
   end 
 
   def choice_screen
-    puts "What would you like to see?" 
-    puts 
-    puts "1 for a Joke"
-    puts "2 for a Funny Picture" 
+    puts "What would you like to see?\n" 
+    puts '1 for a Joke'
+    puts '2 for a Funny Picture' 
     gets.chomp 
   end 
 
   def display_joke(joke)
-    puts 
-    puts joke
-    puts 
+    puts "\n#{joke}\n"
     sleep(3)
   end 
 
   def display_image(punchline, image)
-    puts 
-    puts punchline
+    puts "\n#{punchline}"
     sleep(3)
     Launchy.open(image)
   end 
@@ -36,8 +30,7 @@ class Viewer
   end 
 
   def see_another?
-    puts 
-    puts "Would you like to laugh again ?"
+    puts "\nWould you like to laugh again ?"
     gets.chomp
   end 
 
