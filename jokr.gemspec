@@ -3,7 +3,7 @@ $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'jokr'
-  s.version     = '2.0.2'
+  s.version     = '2.1.2'
   s.date        = '2014-05-30'
   s.executables << 'jokr'
   s.default_executable = 'jokr'
@@ -15,4 +15,6 @@ Gem::Specification.new do |s|
   s.homepage    =
     'http://rubygems.org/gems/jokr'
   s.license       = 'MIT'
+  s.add_dependency('ruby_reddit_api','~>0')
+  s.add_dependency('launchy','~>0')
 end
